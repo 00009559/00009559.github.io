@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/style.css">                <!-- connects css file -->
+	<title>Articles</title>
+</head>
+
+<style>
+
+	body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: #fff;
+      height: 3000px;     /* not to influence other pages */
+    }
+
+</style>
+
+<body background="images/header.jpg">
+
+	<nav>
+		<ul class="menu2"> <!-- hyperlinks to the other pages-->
+			<li><a href="index.html">Main</a></li>
+			<li><a href="movies.html">Movies</a></li>
+			<li><a href="cartoons.html">Animation</a></li>
+			<li><a href="trailers.html">Trailers</a></li>
+			<li><a href="articles.html">Articles</a></li>
+			<li><a href="aboutus.html">About us</a></li>
+		</ul>
+
+	</nav>
+
+	<h1 align="center">Watch Your Favourite Movies With Us</h1>
+
+<div class="slider">
+
+    <div class="sliderwrapper">                          <!-- slider images -->
+    	<div class="slideritem">
+    		<div style="height: 737px;"><img src="images/poster4.jpg">WATCH</div>
+        </div>
+        <div class="slideritem">
+            <div style="height: 737px;"><img src="images/poster3.jpg">YOUR</div>
+        </div>
+        <div class="slideritem">
+            <div style="height: 737px;"><img src="images/poster6.jpg">FAVOURITE</div>
+        </div>
+        <div class="slideritem">
+            <div style="height: 737px;"><img src="images/poster5.jpg">MOVIES</div>
+        </div>
+        <div class="slideritem">
+            <div style="height: 737px;"><img src="images/poster1.jpg">WITH</div>
+        </div>
+        <div class="slideritem">
+            <div style="height: 737px;"><img src="images/poster2.jpg">US</div>
+        </div>
+    </div>
+    <a class="slidercontrol slidercontrol-left" href="#" role="button"></a>                       <!-- button left-->
+    <a class="slidercontrol slidercontrol-right slidercontrol-show" href="#" role="button"></a>   <!-- button right -->
+</div>
+
+                                    <!-- JavaScript part -->
+  <script>                                               
+    'use strict';
+    var multiItemSlider = (function () {
+      return function (selector, config) {
+        var
+          _mainElement = document.querySelector(selector), 
+          _sliderWrapper = _mainElement.querySelector('.sliderwrapper'), 
+          _sliderItems = _mainElement.querySelectorAll('.slideritem'), 
+          _sliderControls = _mainElement.querySelectorAll('.slidercontrol'), 
+          _sliderControlLeft = _mainElement.querySelector('.slidercontrol-left'), 
+          _sliderControlRight = _mainElement.querySelector('.slidercontrol-right'), 
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), 
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width),     
+          _positionLeftItem = 0, 
+          _transform = 0, 
+          _step = _itemWidth / _wrapperWidth * 100, 
+          _items = []; 
+        
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+
+        var position = {
+          getMin: 0,
+          getMax: _items.length - 1,
+        }
+
+        var _transformItem = function (direction) {
+          if (direction === 'right') {
+            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) >= position.getMax) {
+              return;
+            }
+            if (!_sliderControlLeft.classList.contains('slidercontrol-show')) {
+              _sliderControlLeft.classList.add('slidercontrol-show');
+            }
+            if (_sliderControlRight.classList.contains('slidercontrol-show') && (_positionLeftItem + _wrapperWidth / _itemWidth) >= position.getMax) {
+              _sliderControlRight.classList.remove('slidercontrol-show');
+            }
+            _positionLeftItem++;
+            _transform -= _step;
+          }
+          if (direction === 'left') {
+            if (_positionLeftItem <= position.getMin) {
+              return;
+            }
+            if (!_sliderControlRight.classList.contains('slidercontrol-show')) {
+              _sliderControlRight.classList.add('slidercontrol-show');
+            }
+            if (_sliderControlLeft.classList.contains('slidercontrol-show') && _positionLeftItem - 1 <= position.getMin) {
+              _sliderControlLeft.classList.remove('slidercontrol-show');
+            }
+            _positionLeftItem--;
+            _transform += _step;
+          }
+          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        }
+
+        
+        var _controlClick = function (e) {
+          if (e.target.classList.contains('slidercontrol')) {
+            e.preventDefault();
+            var direction = e.target.classList.contains('slidercontrol-right') ? 'right' : 'left';
+            _transformItem(direction);
+          }
+        };
+
+        var _setUpListeners = function () {
+       
+          _sliderControls.forEach(function (item) {
+            item.addEventListener('click', _controlClick);
+          });
+        }
+
+        
+        _setUpListeners();
+
+        return {
+          right: function () { 
+            _transformItem('right');
+          },
+          left: function () { 
+            _transformItem('left');
+          }
+        }
+
+      }
+    }());
+
+    var slider = multiItemSlider('.slider')
+
+  </script>
+
+  <h1 align="center">Movie News of the week</h1>
+
+  <div id="batman">                                          <!-- image -->
+  	<img src="images/news1.jpg" width="400px">
+  </div>
+
+  <div id="the-batman">Godzilla vs. Kong First Footage Shows Kong In Chains  <!-- text -->
+		<h2>Fresh footage out of CCXP brings Godzilla and King Kong face to face ahead of their highly anticipated clash in 2021's long awaited match up.</h2>
+	</div>
+
+	<div id="batman">                                          <!-- image -->
+  	<img src="images/news2.jpg" width="400px">
+  </div>
+
+  <div id="the-batman">Disney Reportedly Announcing New Marvel, Star Wars Projects This Week  <!-- text -->
+		<h2>Disney may be announcing new film and TV projects for Star Wars and Marvel properties during its virtual Investor Day event this Thursday.</h2>
+	</div>
+
+	<div id="batman">                                          <!-- image -->
+  	<img src="images/news3.jpg" width="400px">
+  </div>
+
+  <div id="the-batman">Jason Momoa Sends Life-Size Aquaman Trident To Young Fan Battling Cancer  <!-- text -->
+		<h2>DCEU star Jason Momoa proves he's a real life superhero by sending an official Aquaman trident, plus other merch, to a young fan battling cancer.</h2>
+	</div>
+
+	<div id="batman">                                          <!-- image -->
+  	<img src="images/news4.jpg" width="400px">
+  </div>
+
+  <div id="the-batman">Tom Holland’s Cherry Is Like Multiple Movies In One, Says Director  <!-- text -->
+		<h2>Tom Holland's upcoming Apple TV+ film, Cherry, will tackle multiple genres in a format that will make it almost episodic in nature.</h2>
+	</div>
+
+	<div id="batman">                                          <!-- image -->
+  	<img src="images/news5.jpg" width="400px">
+  </div>
+
+    <div id="the-batman">Mad Max Furiosa Prequel Will Honor Immortan Joe Actor  <!-- text -->
+		<h2>George Miller says he will find a way to honor Hugh Keays-Byrne in the upcoming Furiosa prequel film after the actor passed away earlier in December.</h2>
+	</div>
+
+
+	<div id="info" width="100%">
+
+		<h3>Attention!</h3>
+        <p align="left">This website was created to fulfill Web Technology module’s requirements and does not represent an actual company or service.</p>
+        <img src="images/minlogo.png" width="80px">
+	</div>
+
+
+</body>
+</html>

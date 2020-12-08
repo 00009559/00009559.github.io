@@ -1,0 +1,307 @@
+* {
+	margin: 0;
+	padding: 0; /* to avoid influences */
+}
+
+nav ul {
+	list-style: none;
+	background-color: #0A0A0A;
+}
+
+nav > ul > li {
+	float: left; /*transition to the left*/
+}
+
+nav ul::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+nav ul li a {
+	display: inline-block;
+	padding: 20px 30px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	font-family: monospace;
+	width: 125px; 
+	transition: background-color 0.5s;     /* hyperlink view*/
+}
+
+nav ul li a:hover {
+	background-color: #F76821;
+}
+
+nav ul li:hover ul {
+	display: block;
+}
+
+nav {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+#block {
+	padding-right: 100px;
+	background-image: url(../images/head.jpg);  /* image as background picture */
+}
+
+.about {
+	float: right;   /* move to right */
+	list-style: none;
+	margin-top: 10px;
+}
+
+.about li a {
+	text-decoration: none;
+	font-family: monospace;
+	color: #F57A20;
+	font-size: 25px;
+	transition: opacity 0.5s;
+	transition: color 0.5s;      /* text look */
+}
+
+.about:hover li a {
+	opacity: 0.5; 
+	color: white;  /* lowers opacity on hover*/
+}
+
+
+.play img {
+	transition: transform 2s;   /*animation time*/
+	opacity: 0.5;
+	margin-bottom: 20px
+
+
+}
+
+.play:hover img {
+	opacity: 1;
+	transform: rotate(360deg);
+}
+
+
+h1 {
+	font-family: monospace;
+	font-size: 30px;
+	line-height: 50px;
+	color: white;
+	background-color: #F57A20;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	line-height: 50px;      /*text look*/
+}
+
+#batman {
+	float: left;
+	width: 30%;
+	background-color: #3E3E3E;
+	height: 267px;  
+	margin-bottom: 40px           /*background for the picture*/
+}
+
+#batman img {
+	transition: transform 0.5s; 
+	float: right;
+	transform: scale(0.9);
+}
+
+#batman:hover img {
+	transform: scale(1.1);   /* enlarges the picture on hover */
+}
+
+#the-batman {
+	font-family: fantasy;
+	color: #F57A20;
+	font-size: 40px;
+	min-height: 267px;
+	background-color: #3E3E3E;
+	width: 100%;
+	text-align: center; 
+	margin-bottom: 40px;         /*background for the text*/
+}
+
+h2 {
+	font-family: monospace;
+	font-size: 20px;
+	color: white;
+	margin-top: 20px;
+	margin-bottom: 20px; 
+	margin-left: 20px;   
+}
+
+#widow {
+	float: left;
+	width: 30%;
+	background-color: #3E3E3E;
+	height: 100%;  
+	margin-bottom: 50px;           /*background for the picture*/
+}
+
+#widow img {
+	transition: transform 0.5s; 
+	float: right;
+	transform: scale(0.9);
+}
+
+#widow:hover img {
+	transform: scale(1.1);   /* enlarges the picture on hover */
+}
+
+#textwidow {
+	font-family: fantasy;
+	color: #F57A20;
+	font-size: 40px;
+	min-height: 444px;
+	background-color: #3E3E3E;
+	width: 100%;
+	text-align: center; 
+	margin-bottom: 50px;      /*background for the text*/
+}
+
+#info {
+	background-color: #3E3E3E;
+}
+
+#info p {
+	color: white;
+	font-size: 25px;
+	font-family: all;
+	width: 100%;
+	margin-left: 20px;
+}
+
+h3 {
+	color: #DD2323;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-family: monospace;
+	margin-left: 30px;
+}
+
+
+#cf {
+	margin-bottom: 20px;
+	transition: transform 2s;
+}
+
+#cf:hover {
+	transform: rotate(720deg);  /*rotates the picture*/
+}
+
+h4 {
+	font-family: fantasy;
+	color: #3E3E3E;
+	font-size: 40px;
+	background-color: #F57A20;
+	margin-bottom: 30px;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;        /*movie titles*/
+}
+
+.poster img {               /*image editing*/
+	transition: transform 1s;
+	float: right;
+	transform: scale(0.8);
+	margin-right: 10px;
+}
+
+.poster:hover img {
+	transform: scale(1);
+}
+
+h5 {
+	font-family: sans-serif;   /*text redacting*/
+	color: white;
+	font-size: 25px;
+	float: left;
+	width: 70%;
+}
+
+.trailer {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+h6 {
+	font-family: sans-serif;   /*text redacting*/
+	color: #F57A20;
+	font-size: 30px;
+	margin-left: 400px;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.sliderwrapper {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slideritem {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.slidercontrol {
+    position: absolute;
+    top: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    opacity: 0.8;
+    height: 50px;
+    transform: translateY(-50%);
+    background: #F57A20;
+}
+
+.slidercontrol-show {
+    display: flex;
+}
+
+.slidercontrol:hover,
+.slidercontrol:focus {
+    color: #F57A20;
+    text-decoration: none;
+    outline: 0;
+    opacity: 1;
+}
+
+.slidercontrol-left {
+    left: 0;
+}
+
+.slidercontrol-right {
+    right: 0;
+}
+
+.slidercontrol::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.slidercontrol-left::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slidercontrol-right::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.slideritem>div {
+    line-height: 250px;
+    font-size: 100px;
+    text-align: center;
+}
